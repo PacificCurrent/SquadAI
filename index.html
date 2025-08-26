@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SQUAD AI</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#111827">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>SQUAD AI</h1>
+    <button id="login">Sign in</button>
+    <button id="logout" hidden>Sign out</button>
+  </header>
+
+  <main>
+    <section id="status"></section>
+
+    <section class="card">
+      <h2>New Project</h2>
+      <input id="title" placeholder="Project title" />
+      <select id="mode">
+        <option value="text">Text</option>
+        <option value="voice_only">Voice only</option>
+        <option value="any_avatar">Any avatar</option>
+      </select>
+      <button id="create">Create</button>
+    </section>
+
+    <section class="card">
+      <h2>Your Projects</h2>
+      <ul id="projects"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
