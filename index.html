@@ -2,40 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SQUAD AI</title>
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#111827" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <h1>SQUAD AI</h1>
-    <button id="login">Sign in</button>
-    <button id="logout" hidden>Sign out</button>
+    <div>
+      <button id="login">Sign in</button>
+      <button id="logout" hidden>Sign out</button>
+    </div>
   </header>
 
-  <main>
-    <section id="status"></section>
+  <section id="status"></section>
 
+  <main class="grid">
     <section class="card">
-      <h2>New Project</h2>
-      <input id="title" placeholder="Project title" />
-      <select id="mode">
-        <option value="text">Text</option>
-        <option value="voice_only">Voice only</option>
-        <option value="any_avatar">Any avatar</option>
+      <h2>New Conversation</h2>
+      <input id="convTitle" placeholder="Conversation title" />
+      <button id="createConv">Create</button>
+
+      <h3 style="margin-top:1rem;">Add Bots</h3>
+      <select id="botKind">
+        <option value="chatgpt">ChatGPT</option>
+        <option value="claude">Claude</option>
+        <option value="gemini">Gemini</option>
+        <option value="perplexity">Perplexity</option>
       </select>
-      <button id="create">Create</button>
+      <button id="addBot" disabled>Add bot to selected conversation</button>
     </section>
 
     <section class="card">
-      <h2>Your Projects</h2>
-      <ul id="projects"></ul>
+      <h2>Your Conversations</h2>
+      <ul id="conversations"></ul>
+    </section>
+
+    <section class="card">
+      <h2 id="roomTitle">Messages</h2>
+      <ul id="messages"></ul>
+      <div class="row">
+        <input id="msgText" placeholder="Type a message..." />
+        <button id="send" disabled>Send</button>
+      </div>
     </section>
   </main>
 
-  <!-- ✅ Vite will serve from /src -->
-  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/app.js"></script>
 </body>
 </html>
