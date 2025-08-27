@@ -1,8 +1,19 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Vite exposes env with VITE_ prefix
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl  = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey  = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+// Guard: show a message if env is missing (and stop execution)
+if (!supabaseUrl || !supabaseKey) {
+  const s = document.getElementById('status');
+  if (s) {
+    s.textContent = '❌ Missing VITE_SUPABASE_* env vars. Set them in Replit Deploy → Deployment secrets, then redeploy.';
+  }
+  throw new Error('Missing Supabase env vars.');
+}
+
+// Init client
 const sb = createClient(supabaseUrl, supabaseKey);
 
 const els = {
